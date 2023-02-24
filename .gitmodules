@@ -1,0 +1,7 @@
+[submodule "src/aruco_ros"]
+	path = "src/aruco_ros"
+	url = "https://github.com/pal-robotics/aruco_ros.git"
+
+[submodule "src/usb_cam"]
+	path = "src/usb_cam"
+	url = "https://github.com/ros-drivers/usb_cam.git"
