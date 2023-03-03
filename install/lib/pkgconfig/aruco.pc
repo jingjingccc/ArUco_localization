@@ -1,0 +1,8 @@
+prefix=/home/jing/ArUco_localization/install
+
+Name: aruco
+Description: Description of aruco
+Version: 3.1.3
+Cflags: -I${prefix}/include
+Libs: -L${prefix}/lib -laruco
+Requires: 

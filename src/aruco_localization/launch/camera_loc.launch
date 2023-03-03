@@ -1,0 +1,8 @@
+<launch>
+
+    <arg name="use_static_tf" default="true" />
+    <node pkg="tf" type="static_transform_publisher" name="central_marker_loc_publisher" args="0 0 0 0 0 0 1 map central_marker_frame 50" if="$(arg use_static_tf)" />
+    
+    <node pkg="aruco_localization" type="camera_loc" name="camera_loc" output="screen">
+        <!-- <remap from="/aruco_single/pose" to=""/> -->
+</launch>
