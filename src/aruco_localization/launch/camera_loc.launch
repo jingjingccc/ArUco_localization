@@ -1,8 +1,18 @@
 <launch>
 
-    <arg name="use_static_tf" default="true" />
-    <node pkg="tf" type="static_transform_publisher" name="central_marker_loc_publisher" args="0 0 0 0 0 0 1 map central_marker_frame 50" if="$(arg use_static_tf)" />
+    <!-- <arg name="use_static_tf" default="true" />if="$(arg use_static_tf)" -->
+    <node pkg="tf" type="static_transform_publisher" name="central_marker_loc_publisher" args="0.25 0.25 0 0 0 0 1 map central_marker_frame 50"  />
     
     <node pkg="aruco_localization" type="camera_loc" name="camera_loc" output="screen">
+        <!-- the central marker pose is reference in map_frame -->
+        <!-- <param name="central_marker_p_x" type="double" value="0.25"/>
+        <param name="central_marker_p_y" type="double" value="0.25"/>
+        <param name="central_marker_p_z" type="double" value="0.0"/>
+        <param name="central_marker_o_x" type="double" value="0.0"/>
+        <param name="central_marker_o_y" type="double" value="0.0"/>
+        <param name="central_marker_o_z" type="double" value="0.0"/>
+        <param name="central_marker_o_w" type="double" value="1.0"/> -->
         <!-- <remap from="/aruco_single/pose" to=""/> -->
+    </node>
+
 </launch>
