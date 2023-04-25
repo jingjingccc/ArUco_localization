@@ -1,0 +1,8 @@
+<launch>
+
+    <!-- aruco fixed marker detect id 200-->
+    <include file="$(find aruco_ros)/launch/aruco_robot1.launch" />
+
+    <node pkg="aruco_localization" type="robot_loc" name="robot_loc" output="screen" />
+
+</launch>

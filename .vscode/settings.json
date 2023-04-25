@@ -1,6 +1,9 @@
 {
     "files.associations": {
         "*.c": "c",
-        "unordered_map": "cpp"
-    }
+        "unordered_map": "cpp",
+        "*.ipp": "cpp",
+        "optional": "cpp"
+    },
+    "cmake.sourceDirectory": "${workspaceFolder}/src/usb_cam"
 }

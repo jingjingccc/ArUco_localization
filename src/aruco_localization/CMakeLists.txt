@@ -12,6 +12,8 @@ find_package(catkin REQUIRED COMPONENTS
   rospy
   std_msgs
   tf
+  Eigen3
+  eigen_conversions
 )
 
 ## System dependencies are found with CMake's conventions
@@ -119,6 +121,7 @@ catkin_package(
 include_directories(
 # include
   ${catkin_INCLUDE_DIRS}
+  ${EIGEN3_INCLUDE_DIRS}
 )
 
 ## Declare a C++ library
@@ -153,6 +156,12 @@ include_directories(
 
 add_executable(camera_loc src/camera_loc.cpp)
 target_link_libraries(camera_loc ${catkin_LIBRARIES})
+
+add_executable(camera_loc_ src/camera_loc_.cpp)
+target_link_libraries(camera_loc_ ${catkin_LIBRARIES})
+
+add_executable(robot_loc src/robot_loc.cpp)
+target_link_libraries(robot_loc ${catkin_LIBRARIES})
 
 #############
 ## Install ##
