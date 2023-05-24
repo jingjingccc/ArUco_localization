@@ -163,6 +163,9 @@ target_link_libraries(camera_loc_ ${catkin_LIBRARIES})
 add_executable(robot_loc src/robot_loc.cpp)
 target_link_libraries(robot_loc ${catkin_LIBRARIES})
 
+add_executable(collision_check src/collision_check.cpp)
+target_link_libraries(collision_check ${catkin_LIBRARIES})
+
 #############
 ## Install ##
 #############

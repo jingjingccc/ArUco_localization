@@ -1,0 +1,6 @@
+<launch>
+
+    <node pkg="aruco_localization" type="collision_check" name="collision_check" output="screen" />
+        <param name="tolerance_distance" value="0.2" />
+
+</launch>
