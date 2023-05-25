@@ -1,0 +1,10 @@
+<launch>
+
+    <!-- open camera -->
+    <include file="$(find usb_cam)/launch/usb_cam-test.launch" />
+    
+    <!-- camera calibration node -->
+    <node pkg="camera_calibration" type="cameracalibrator.py" name="cameracalibrator" output="screen" 
+    args="--size 8x6 --square 0.027 image:=/usb_cam/image_raw"/>
+
+</launch>
