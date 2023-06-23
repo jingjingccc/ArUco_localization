@@ -14,6 +14,7 @@ find_package(catkin REQUIRED COMPONENTS
   tf
   Eigen3
   eigen_conversions
+  roslib
 )
 
 ## System dependencies are found with CMake's conventions
@@ -165,6 +166,9 @@ target_link_libraries(robot_loc ${catkin_LIBRARIES})
 
 add_executable(collision_check src/collision_check.cpp)
 target_link_libraries(collision_check ${catkin_LIBRARIES})
+
+add_executable(mission_publish src/mission_publish.cpp)
+target_link_libraries(mission_publish ${catkin_LIBRARIES})
 
 #############
 ## Install ##

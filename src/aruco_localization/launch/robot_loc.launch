@@ -1,8 +1,95 @@
 <launch>
 
-    <!-- aruco fixed marker detect id 200-->
     <include file="$(find aruco_ros)/launch/aruco_robot1.launch" />
+    <include file="$(find aruco_ros)/launch/aruco_robot2.launch" />
+    <include file="$(find aruco_ros)/launch/aruco_robot3.launch" />
 
-    <node pkg="aruco_localization" type="robot_loc" name="robot_loc" output="screen" />
+    <include file="$(find aruco_ros)/launch/aruco_mission1.launch" />
+    <include file="$(find aruco_ros)/launch/aruco_mission2.launch" />
+    <include file="$(find aruco_ros)/launch/aruco_mission3.launch" />
+    <include file="$(find aruco_ros)/launch/aruco_mission4.launch" />
+    <include file="$(find aruco_ros)/launch/aruco_mission5.launch" />
+    <include file="$(find aruco_ros)/launch/aruco_mission6.launch" />
+    <include file="$(find aruco_ros)/launch/aruco_mission7.launch" />
+    <include file="$(find aruco_ros)/launch/aruco_mission8.launch" />
+    <include file="$(find aruco_ros)/launch/aruco_mission9.launch" />
+    <include file="$(find aruco_ros)/launch/aruco_mission10.launch" />
+    <include file="$(find aruco_ros)/launch/aruco_mission11.launch" />
+    <include file="$(find aruco_ros)/launch/aruco_mission12.launch" />
+    
+     <!--robot pose  -->
+    <node pkg="aruco_localization" type="robot_loc" name="robot_loc_1" output="screen">
+        <remap from="/aruco_robot_n/pose" to="/aruco_robot_1/pose"/>
+        <remap from="/robot_pose" to="/robot1_pose"/>
+    </node>
+
+    <node pkg="aruco_localization" type="robot_loc" name="robot_loc_2" output="screen">
+        <remap from="/aruco_robot_n/pose" to="/aruco_robot_2/pose"/>
+        <remap from="/robot_pose" to="/robot2_pose"/>
+    </node>
+
+    <node pkg="aruco_localization" type="robot_loc" name="robot_loc_3" output="screen">
+        <remap from="/aruco_robot_n/pose" to="/aruco_robot_3/pose"/>
+        <remap from="/robot_pose" to="/robot3_pose"/>
+    </node>
+
+    <!-- mission spot -->
+    <node pkg="aruco_localization" type="robot_loc" name="mission_loc_1" output="screen">
+        <remap from="/aruco_robot_n/pose" to="/aruco_mission_1/pose"/>
+        <remap from="/robot_pose" to="/mission1_pose"/>
+    </node>
+
+    <node pkg="aruco_localization" type="robot_loc" name="mission_loc_2" output="screen">
+        <remap from="/aruco_robot_n/pose" to="/aruco_mission_2/pose"/>
+        <remap from="/robot_pose" to="/mission2_pose"/>
+    </node>
+
+    <node pkg="aruco_localization" type="robot_loc" name="mission_loc_3" output="screen">
+        <remap from="/aruco_robot_n/pose" to="/aruco_mission_3/pose"/>
+        <remap from="/robot_pose" to="/mission3_pose"/>
+    </node>
+    
+    <node pkg="aruco_localization" type="robot_loc" name="mission_loc_4" output="screen">
+        <remap from="/aruco_robot_n/pose" to="/aruco_mission_4/pose"/>
+        <remap from="/robot_pose" to="/mission4_pose"/>
+    </node>
+
+    <node pkg="aruco_localization" type="robot_loc" name="mission_loc_5" output="screen">
+        <remap from="/aruco_robot_n/pose" to="/aruco_mission_5/pose"/>
+        <remap from="/robot_pose" to="/mission5_pose"/>
+    </node>
+
+    <node pkg="aruco_localization" type="robot_loc" name="mission_loc_6" output="screen">
+        <remap from="/aruco_robot_n/pose" to="/aruco_mission_6/pose"/>
+        <remap from="/robot_pose" to="/mission6_pose"/>
+    </node>
+    <node pkg="aruco_localization" type="robot_loc" name="mission_loc_7" output="screen">
+        <remap from="/aruco_robot_n/pose" to="/aruco_mission_7/pose"/>
+        <remap from="/robot_pose" to="/mission7_pose"/>
+    </node>
+
+    <node pkg="aruco_localization" type="robot_loc" name="mission_loc_8" output="screen">
+        <remap from="/aruco_robot_n/pose" to="/aruco_mission_8/pose"/>
+        <remap from="/robot_pose" to="/mission8_pose"/>
+    </node>
+
+    <node pkg="aruco_localization" type="robot_loc" name="mission_loc_9" output="screen">
+        <remap from="/aruco_robot_n/pose" to="/aruco_mission_9/pose"/>
+        <remap from="/robot_pose" to="/mission9_pose"/>
+    </node>
+    <node pkg="aruco_localization" type="robot_loc" name="mission_loc_10" output="screen">
+        <remap from="/aruco_robot_n/pose" to="/aruco_mission_10/pose"/>
+        <remap from="/robot_pose" to="/mission10_pose"/>
+    </node>
+
+    <node pkg="aruco_localization" type="robot_loc" name="mission_loc_11" output="screen">
+        <remap from="/aruco_robot_n/pose" to="/aruco_mission_11/pose"/>
+        <remap from="/robot_pose" to="/mission11_pose"/>
+    </node>
+
+    <node pkg="aruco_localization" type="robot_loc" name="mission_loc_12" output="screen">
+        <remap from="/aruco_robot_n/pose" to="/aruco_mission_12/pose"/>
+        <remap from="/robot_pose" to="/mission12_pose"/>
+    </node>
 
 </launch>

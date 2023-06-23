@@ -19,7 +19,7 @@ private:
     double control_frequency;
 
     void poseCallback(const geometry_msgs::PoseStamped p_);
-    ros::Subscriber pose_sub_ = nh_.subscribe("/aruco_robot_1/pose", 10, &Robot_location::poseCallback, this);
+    ros::Subscriber pose_sub_ = nh_.subscribe("/aruco_robot_n/pose", 10, &Robot_location::poseCallback, this);
     ros::Time callback_time_;
 
     bool pose_received;
@@ -28,7 +28,7 @@ private:
 
     tf::TransformListener listener;
 
-    ros::Publisher robot1_pose_pub;
+    ros::Publisher robot_pose_pub = nh_.advertise<geometry_msgs::PoseStamped>("robot_pose", 10);
 };
 
 Robot_location::Robot_location(ros::NodeHandle &nh)
@@ -39,8 +39,6 @@ Robot_location::Robot_location(ros::NodeHandle &nh)
 
 void Robot_location::initialize()
 {
-    robot1_pose_pub = nh_.advertise<geometry_msgs::PoseStamped>("robot1_pose", 10);
-
     control_frequency = 50;
     pose_received = false;
 
@@ -91,7 +89,7 @@ void Robot_location::timerCallback(const ros::TimerEvent &e)
         }
 
         // publish robot pose in map frame
-        robot1_pose_pub.publish(robot_pose_in_map_frame);
+        robot_pose_pub.publish(robot_pose_in_map_frame);
     }
 }
 
