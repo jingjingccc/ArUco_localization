@@ -58,6 +58,7 @@ private:
     geometry_msgs::PoseStamped get_mission_pose(int missionNum);
     geometry_msgs::PoseStamped m1_pose, m2_pose, m3_pose, m4_pose, m5_pose,
         m6_pose, m7_pose, m8_pose, m9_pose, m10_pose, m11_pose, m12_pose;
+    void printpose(geometry_msgs::PoseStamped p);
 
     void m1Callback(const geometry_msgs::PoseStamped p);
     ros::Subscriber mission_pose_sub_1 = nh_.subscribe("/mission1_pose", 10, &Mission_publish::m1Callback, this);
@@ -94,7 +95,8 @@ Mission_publish::Mission_publish(ros::NodeHandle &nh)
 void Mission_publish::read_CSV()
 {
     packagepath = ros::package::getPath("aruco_localization");
-    fstream file(packagepath + "/csv/" + "/mission1.csv");
+    // fstream file(packagepath + "/csv/" + "/mission_test.csv");
+    fstream file(packagepath + "/csv/" + "/mission_three.csv");
     if (file.is_open())
     {
         while (getline(file, line))
@@ -230,6 +232,7 @@ void Mission_publish::m12Callback(const geometry_msgs::PoseStamped p)
 geometry_msgs::PoseStamped Mission_publish::get_mission_pose(int missionNum)
 {
     geometry_msgs::PoseStamped p;
+    p.header = m4_pose.header;
     switch (missionNum)
     {
     case 1:
@@ -268,8 +271,202 @@ geometry_msgs::PoseStamped Mission_publish::get_mission_pose(int missionNum)
     case 12:
         p = m12_pose;
         break;
+    case 13:
+        p.pose.position.x = 1.68;
+        p.pose.position.y = 0.14;
+        p.pose.position.z = 0;
+        p.pose.orientation.x = -0.28;
+        p.pose.orientation.y = -0.16;
+        p.pose.orientation.z = 0.04;
+        p.pose.orientation.w = 0.94;
+        break;
+    case 14:
+        p.pose.position.x = 1.56;
+        p.pose.position.y = 0.51;
+        p.pose.position.z = 0.48;
+        p.pose.orientation.x = 0.11;
+        p.pose.orientation.y = -0.04;
+        p.pose.orientation.z = 0;
+        p.pose.orientation.w = 0.99;
+        break;
+    case 15:
+        p.pose.position.x = 1.19;
+        p.pose.position.y = 0.73;
+        p.pose.position.z = 0.47;
+        p.pose.orientation.x = 0.02;
+        p.pose.orientation.y = 0.2;
+        p.pose.orientation.z = 0.02;
+        p.pose.orientation.w = 0.97;
+        break;
+    case 16:
+        p.pose.position.x = 1.02;
+        p.pose.position.y = 0.63;
+        p.pose.position.z = 0.38;
+        p.pose.orientation.x = -0.12;
+        p.pose.orientation.y = -0.06;
+        p.pose.orientation.z = 0.04;
+        p.pose.orientation.w = 0.99;
+        break;
+    case 17:
+        p.pose.position.x = 0.41;
+        p.pose.position.y = 0.82;
+        p.pose.position.z = 0.32;
+        p.pose.orientation.x = -0.15;
+        p.pose.orientation.y = 0.36;
+        p.pose.orientation.z = 0.01;
+        p.pose.orientation.w = 0.92;
+        break;
+    case 18:
+        p.pose.position.x = 0.4;
+        p.pose.position.y = 0.48;
+        p.pose.position.z = 0.34;
+        p.pose.orientation.x = 0;
+        p.pose.orientation.y = 0.04;
+        p.pose.orientation.z = -0.002;
+        p.pose.orientation.w = 0.99;
+        break;
+    case 19:
+        p.pose.position.x = 1.779;
+        p.pose.position.y = 1.63;
+        p.pose.position.z = 0.4;
+        p.pose.orientation.x = -0.011;
+        p.pose.orientation.y = -0.13;
+        p.pose.orientation.z = -0.02;
+        p.pose.orientation.w = 0.98;
+        break;
+    case 20:
+        p.pose.position.x = 1.305;
+        p.pose.position.y = 1.815;
+        p.pose.position.z = 0.27;
+        p.pose.orientation.x = 0.075;
+        p.pose.orientation.y = -0.055;
+        p.pose.orientation.z = -0.0018;
+        p.pose.orientation.w = 0.995;
+        break;
+    case 21:
+        p.pose.position.x = 0.845;
+        p.pose.position.y = 1.475;
+        p.pose.position.z = 0.365;
+        p.pose.orientation.x = -0.135;
+        p.pose.orientation.y = 0.125;
+        p.pose.orientation.z = 0.076;
+        p.pose.orientation.w = 0.979;
+        break;
+    case 22:
+        p.pose.position.x = 0.595;
+        p.pose.position.y = 1.985;
+        p.pose.position.z = 0.415;
+        p.pose.orientation.x = 0.275;
+        p.pose.orientation.y = 0.235;
+        p.pose.orientation.z = -0.008;
+        p.pose.orientation.w = 0.925;
+        break;
+    case 23:
+        p.pose.position.x = 0.765;
+        p.pose.position.y = 0.885;
+        p.pose.position.z = 0.425;
+        p.pose.orientation.x = 0.09;
+        p.pose.orientation.y = 0.21;
+        p.pose.orientation.z = 0.001;
+        p.pose.orientation.w = 0.973;
+        break;
+    case 24:
+        p.pose.position.x = 0.87;
+        p.pose.position.y = 1.805;
+        p.pose.position.z = 0.305;
+        p.pose.orientation.x = 0.18;
+        p.pose.orientation.y = 0.035;
+        p.pose.orientation.z = -0.015;
+        p.pose.orientation.w = 0.982;
+        break;
+    case 101:
+        p.pose.position.x = 1.71;
+        p.pose.position.y = 0.48;
+        p.pose.position.z = 0.25;
+        p.pose.orientation.x = -0.19;
+        p.pose.orientation.y = -0.175;
+        p.pose.orientation.z = 0.036;
+        p.pose.orientation.w = 0.955;
+        break;
+    case 102:
+        p.pose.position.x = 1.7;
+        p.pose.position.y = 0.9;
+        p.pose.position.z = 0;
+        p.pose.orientation.x = 0;
+        p.pose.orientation.y = 0;
+        p.pose.orientation.z = 0;
+        p.pose.orientation.w = 1;
+        break;
+    case 103:
+        p.pose.position.x = 1.3;
+        p.pose.position.y = 0.9;
+        p.pose.position.z = 0;
+        p.pose.orientation.x = 0;
+        p.pose.orientation.y = 0;
+        p.pose.orientation.z = 0;
+        p.pose.orientation.w = 1;
+        break;
+    case 104:
+        p.pose.position.x = 1.7;
+        p.pose.position.y = 1.9;
+        p.pose.position.z = 0;
+        p.pose.orientation.x = 0;
+        p.pose.orientation.y = 0;
+        p.pose.orientation.z = 0;
+        p.pose.orientation.w = 1;
+        break;
+    case 105:
+        p.pose.position.x = 1.7;
+        p.pose.position.y = 1.5;
+        p.pose.position.z = 0;
+        p.pose.orientation.x = 0;
+        p.pose.orientation.y = 0;
+        p.pose.orientation.z = 0;
+        p.pose.orientation.w = 1;
+        break;
+    case 106:
+        p.pose.position.x = 1.3;
+        p.pose.position.y = 1.5;
+        p.pose.position.z = 0;
+        p.pose.orientation.x = 0;
+        p.pose.orientation.y = 0;
+        p.pose.orientation.z = 0;
+        p.pose.orientation.w = 1;
+        break;
+    case 107:
+        p.pose.position.x = 0.49;
+        p.pose.position.y = 0.47;
+        p.pose.position.z = 0.4;
+        p.pose.orientation.x = -0.06;
+        p.pose.orientation.y = 0.1;
+        p.pose.orientation.z = 0;
+        p.pose.orientation.w = 0.99;
+        break;
+    case 108:
+        p.pose.position.x = 0.9;
+        p.pose.position.y = 0.5;
+        p.pose.position.z = 0;
+        p.pose.orientation.x = 0;
+        p.pose.orientation.y = 0;
+        p.pose.orientation.z = 0;
+        p.pose.orientation.w = 1;
+        break;
+    case 109:
+        p.pose.position.x = 0.9;
+        p.pose.position.y = 0.9;
+        p.pose.position.z = 0;
+        p.pose.orientation.x = 0;
+        p.pose.orientation.y = 0;
+        p.pose.orientation.z = 0;
+        p.pose.orientation.w = 1;
+        break;
     }
     return p;
+}
+
+void Mission_publish::printpose(geometry_msgs::PoseStamped p)
+{
+    ROS_INFO("mission pose:[%f, %f, %f][%f, %f, %f, %f]", p.pose.position.x, p.pose.position.y, p.pose.position.z, p.pose.orientation.x, p.pose.orientation.y, p.pose.orientation.z, p.pose.orientation.w);
 }
 
 void Mission_publish::timerCallback(const ros::TimerEvent &e)
@@ -285,6 +482,7 @@ void Mission_publish::timerCallback(const ros::TimerEvent &e)
                 geometry_msgs::PoseStamped p = get_mission_pose(m);
                 mission1_pub.publish(p);
                 ROS_INFO("robot 1 mission num is : %d\n", m);
+                printpose(p);
                 if (missionList[0].size() == 0)
                 {
                     ROS_INFO("robot1 mission finished\n");
@@ -300,6 +498,8 @@ void Mission_publish::timerCallback(const ros::TimerEvent &e)
                 missionList[1].erase(missionList[1].begin());
                 geometry_msgs::PoseStamped p = get_mission_pose(m);
                 mission2_pub.publish(p);
+                ROS_INFO("robot 2 mission num is : %d\n", m);
+                printpose(p);
                 if (missionList[1].size() == 0)
                 {
                     ROS_INFO("robot2 mission finished\n");
@@ -315,6 +515,8 @@ void Mission_publish::timerCallback(const ros::TimerEvent &e)
                 missionList[2].erase(missionList[2].begin());
                 geometry_msgs::PoseStamped p = get_mission_pose(m);
                 mission3_pub.publish(p);
+                ROS_INFO("robot 3 mission num is : %d\n", m);
+                printpose(p);
                 if (missionList[2].size() == 0)
                 {
                     ROS_INFO("robot3 mission finished\n");

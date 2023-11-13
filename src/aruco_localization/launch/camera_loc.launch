@@ -3,14 +3,21 @@
     <!-- open camera -->
     <include file="$(find usb_cam)/launch/usb_cam-test.launch" />
 
-    <!-- aruco fixed marker detect id 100-->
+    <!-- aruco fixed marker detect id 220-->
     <include file="$(find aruco_ros)/launch/fixed_marker.launch" />
 
     <!-- <arg name="use_static_tf" default="true" />if="$(arg use_static_tf)" -->
-    <node pkg="tf" type="static_transform_publisher" name="central_marker_loc_publisher" args="0.575 0.575 0 0 0 0 1 map fixed_marker_frame 50"  />
+    <!-- <node pkg="tf" type="static_transform_publisher" name="central_marker_loc_publisher" args="1.7 1.5 0 0 0 0 1 map fixed_marker_frame 50"  /> -->
     
     <!-- <node type="rviz" name="rviz" pkg="rviz" args="-d $(find aruco_localization)/rviz/camera.rviz" /> -->
 
-    <node pkg="aruco_localization" type="camera_loc_" name="camera_loc_" output="screen" />
-
+    <node pkg="aruco_localization" type="camera_loc_plus" name="camera_loc_plus" output="screen">
+        <param name="fixed_marker_position_x" value="1.7"/>
+        <param name="fixed_marker_position_y" value="1.5"/>
+        <param name="fixed_marker_position_z" value="0"/>
+        <param name="fixed_marker_orientation_x" value="0"/>
+        <param name="fixed_marker_orientation_y" value="0"/>
+        <param name="fixed_marker_orientation_z" value="0"/>
+        <param name="fixed_marker_orientation_w" value="1"/>
+    </node>
 </launch>

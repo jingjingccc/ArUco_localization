@@ -162,6 +162,7 @@ void Camera_location::timerCallback(const ros::TimerEvent &e)
         map_to_camera_trans.transform.rotation.y = trans_.orientation.y;
         map_to_camera_trans.transform.rotation.z = trans_.orientation.z;
         map_to_camera_trans.transform.rotation.w = trans_.orientation.w;
+
         br_.sendTransform(map_to_camera_trans);
     }
 }

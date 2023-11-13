@@ -3,6 +3,7 @@
     <!-- publish tf from map to camera -->
     <include file="$(find aruco_localization)/launch/camera_loc.launch" />
 
+    
     <!-- publish robot pose in map frame -->
     <include file="$(find aruco_localization)/launch/robot_loc.launch" />
 

@@ -161,6 +161,9 @@ target_link_libraries(camera_loc ${catkin_LIBRARIES})
 add_executable(camera_loc_ src/camera_loc_.cpp)
 target_link_libraries(camera_loc_ ${catkin_LIBRARIES})
 
+add_executable(camera_loc_plus src/camera_loc_plus.cpp)
+target_link_libraries(camera_loc_plus ${catkin_LIBRARIES})
+
 add_executable(robot_loc src/robot_loc.cpp)
 target_link_libraries(robot_loc ${catkin_LIBRARIES})
 
